@@ -1,11 +1,11 @@
-README
 #ce projet consiste à scrapper à tweeter et à envoyer des emails
-    Pour ce projet, l'équipe est constitué de @tinosam, @fetra, @fenitra et de @Hari. Le programme envoi des emails aux mairies de France pour les inciter à participer à THP. 
+    Pour ce projet, l'équipe est constitué de @tinosam, @fetra, @fenitra et de @Hari. 
+    Le programme envoi des emails aux mairies de France pour les inciter à participer à THP. 
     
     Grâce au scrapping, on a récupéré les inforamations nécessaires sur les mairies. Des données récupérer dans un fichier JSON qui envoie les emails aux mairies indiquées.
 
 # Tache :
-    @fenitra s'est occupé su scrap, @fetra du bot, @tinosam du mailer et @Hari du reandme et des gems
+    @fenitra s'est occupé su scrap, @fetra du bot, @tinosam du mailer et @Hari du readme et des gems
 
 # Installation :
 
