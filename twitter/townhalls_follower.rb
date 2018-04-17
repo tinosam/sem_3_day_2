@@ -1,8 +1,4 @@
-
-
-
 require 'twitter'
-require 'dotenv'
 require 'json'
 Dotenv.load
 
@@ -18,18 +14,10 @@ client = Twitter::REST::Client.new do |config|
     config.access_token        =at
     config.access_token_secret =atk
 end
-# t = []
-# client.search("justinbieber").take(3).collect do |tweet|
-#     t.push("#{tweet.user.screen_name}")
-# end
-# puts t
-# t.each do |i|
-#  client.follow(i)
-#end
 
 # convertir le format json en objet ruby
  def json_to_ruby
-    json = File.read('email.json')
+    json = File.read('./database/test.json')
     obj = JSON.parse(json)
  end
 # puts json_to_ruby
@@ -73,6 +61,7 @@ def push_handle
 
 	handle_twitter.each do |i|
 		json_to_ruby[i]['handle'] = '@'+handle_twitter
+	end
 		
 end
 
@@ -86,11 +75,3 @@ def follow_user
 		j +=0
 	end
 end
-
-
-
-
-
-
-
-
