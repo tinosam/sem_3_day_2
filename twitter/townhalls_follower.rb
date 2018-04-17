@@ -12,7 +12,7 @@ at = ENV['TWITTER_TOKEN']
 atk = ENV['TWITTER_TOKEN_ACCESS']
 
 
-client = Twitter::REST::Client.new do |config|
+CLIENT = Twitter::REST::Client.new do |config|
     config.consumer_key        =ck
     config.consumer_secret     =cs
     config.access_token        =at
@@ -29,63 +29,69 @@ end
 
 # convertir le format json en objet ruby
  def json_to_ruby
-    json = File.read('email.json')
+    json = File.read('../database/test.json')
     obj = JSON.parse(json)
+    return obj
  end
 # puts json_to_ruby
 
 #methode qui recupere les villes
 def nom_ville
-nom = []
-json_to_ruby.each do |i| 
-	 nom.push(
-		i['name']
-	 )
-	 nom
- end
+	nom = []
+	json_to_ruby.each do |i| 
+	 nom.push(i['name'])
+ 	end
+ 	nom
 end
  
+ puts nom_ville
 
 # recuperation des nom d'utilisateur dans t[]
-def search_twitter
+def user
 		t = []
 		nom_ville.each do |i|
-	
-		client.search(i).take(1).collect do |tweet|
-		t.push("#{tweet.user.screen_name}") 
-		end
-	end
-	t
+			CLIENT.search(i).take(1).collect do |tweet|
+				t.push("#{tweet.user.screen_name}") 
+
+			end
+		 end
+	return t
 end
-puts search_twitter
+
+
+#methode qui follow a partir du resultat ci-desus
+
+	user.each do |i|
+		CLIENT.follow(i)
+	
+	end
 
 #handle twitter
 def handle_twitter
 		j = 0
 		handle =[]
-		search_twitter.each do |i|
+		user.each do |i|
 		handle.push["@#{i}"]
 		j +=1
 	end
 end
 
-def push_handle
-
-	handle_twitter.each do |i|
-		json_to_ruby[i]['handle'] = '@'+handle_twitter
-		
-end
-
-
-
-#methode qui follow a partir du resultat ci-desus
-
-def follow_user
-	search_twitter.each do |i|
-		client.follow(i)
-		j +=0
+def handle
+	var = json_to_ruby
+	i=0
+	var.each do |handle|
+		nom_arobage = '@' +user[i]
+	        var[i]['handle_twitter'] = nom_arobage
+	    i += 1
 	end
+	return var
 end
+
+ File.open("test.json","w") do |f|
+     f.write(handle.to_json)
+ end
+
+
 
 
 
