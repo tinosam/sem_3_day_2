@@ -1,8 +1,15 @@
 README
+#ce projet consiste à scrapper à tweeter et à envoyer des emails
+    Pour ce projet, l'équipe est constitué de @tinosam, @fetra, @fenitra et de @Hari. Le programme envoi des emails aux mairies de France pour les inciter à participer à THP. 
+    
+    Grâce au scrapping, on a récupéré les inforamations nécessaires sur les mairies. Des données récupérer dans un fichier JSON qui envoie les emails aux mairies indiquées.
 
-    la partie d'introduction qui présenté l'équipe, explique en un paragraphe les grandes lignes du programme, puis comment l'utiliser ($ bundle install)
-    une partie qui présente l'équipe qui a travaillé sur le projet
-    une partie qui explique l'arborescence du dossier, et l'utilité de tous les programmes
-    une partie qui dit comment se servir du programme, et quelles sont les gems utilisées
-    une partie qui explique ce qui a été fait : l'email envoyé, le nombre de mairies touchées, le handle Twitter qui a été utilisé
-# sem_3_day_2
+# Tache :
+    @fenitra s'est occupé su scrap, @fetra du bot, @tinosam du mailer et @Hari du reandme et des gems
+
+# Installation :
+
+    $ bundle install nous a permit d'installer les gems utilisées, et le bot d'avoir un retour sur les emails.
+
+#sem_3_day_2
+#team_mada
