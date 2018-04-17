@@ -1,6 +1,3 @@
-
-
-
 require 'twitter'
 require 'dotenv'
 require 'json'
@@ -44,53 +41,48 @@ json_to_ruby.each do |i|
 	 nom
  end
 end
- 
+ # puts nom_ville
 
-# recuperation des nom d'utilisateur dans t[]
-def search_twitter
-		t = []
-		nom_ville.each do |i|
+ #methode qui cree un handle twitter
+# def handle
+# 	new_hash = {}
+# 	handle_twitter = []
+# 	json_to_ruby.each do |i|
+# 		n =i['name']
+		
+# 		handle_twitter="@#{n}"
+		
+# 		handle_twitter.each do |j|
+		
+# 			new_hash[:name]=i['name']
+# 			new_hash[:email] =i['email']
+# 			new_hash[:departement]=i['departement']
+# 			new_hash[:twitter] =j
+# 		end
+
+# 	end
+# end
+# puts handle
+
+# puts handle
+
+
+t = []
+nom_ville.each do |i|
 	
-		client.search(i).take(1).collect do |tweet|
-		t.push("#{tweet.user.screen_name}") 
-		end
+	client.search(i).take(0).collect do |tweet|
+	t.push("#{tweet.user.screen_name}")
 	end
-	t
 end
-puts search_twitter
+puts t
 
 #handle twitter
-def handle_twitter
-		j = 0
-		handle =[]
-		search_twitter.each do |i|
-		handle.push["@#{i}"]
-		j +=1
-	end
+handle =[]
+t.each do |i|
+	handle.push["@#{i}"]
 end
-
-def push_handle
-
-	handle_twitter.each do |i|
-		json_to_ruby[i]['handle'] = '@'+handle_twitter
-		
-end
-
-
 
 #methode qui follow a partir du resultat ci-desus
-
-def follow_user
-	search_twitter.each do |i|
-		client.follow(i)
-		j +=0
-	end
+t.each do |i|
+	client.follow(i)
 end
-
-
-
-
-
-
-
-
