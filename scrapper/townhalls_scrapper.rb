@@ -78,6 +78,6 @@ end
 
 
 #FICHIER JSON 
-File.open("fichier.json","w") do |f|
+File.open("townhalls.json","w") do |f|
      f.write(var_json.to_json)
 end
