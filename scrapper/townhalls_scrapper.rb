@@ -2,7 +2,6 @@ require 'google_drive'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
-require 'csv'
 
 
 #collect le departement
@@ -78,6 +77,6 @@ end
 
 
 #FICHIER JSON 
-File.open("townhalls.json","w") do |f|
+File.open("./database/townhalls.json","w") do |f|
      f.write(var_json.to_json)
 end
