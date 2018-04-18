@@ -35,7 +35,7 @@ end
 
 def go_through_all_line
 #on lit le fichier json
-    file = File.read('../database/townhalls.json')
+    file = File.read('./database/townhalls.json')
 #on parse le fichier
     datas = JSON.parse(file)
 #voila le code qui parcours le fichier Json et son contenu plus précisement les emails
