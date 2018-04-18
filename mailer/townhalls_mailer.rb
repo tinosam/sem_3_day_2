@@ -2,14 +2,14 @@ require 'json'
 require 'gmail'
 require 'dotenv'
 Dotenv.load
-mail = ENV['GOOGLE_API_GMAIL']
-pass = ENV['GOOGLE_API_PASS']
+MAIL = ENV['GOOGLE_API_GMAIL']
+PASS = ENV['GOOGLE_API_PASS']
 
 #connexion gmail
 
 def send_email_to_line(adresse, name)
 
-gmail = Gmail.connect(mail,pass)
+gmail = Gmail.connect(MAIL,PASS)
 
 gmail.deliver do
   to "#{adresse}"
