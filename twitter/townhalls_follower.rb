@@ -75,7 +75,7 @@ def handle
 	return var
 end
 
- File.open("townhalls.json","w") do |f|
+ File.open("./database/townhalls.json","w") do |f|
      f.write(handle.to_json)
  end
 
